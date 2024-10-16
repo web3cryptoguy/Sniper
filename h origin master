@@ -1,0 +1,59 @@
+[1mdiff --git a/ETH_ins.py b/ETH_ins.py[m
+[1mdeleted file mode 100644[m
+[1mindex 75b8e64..0000000[m
+[1m--- a/ETH_ins.py[m
+[1m+++ /dev/null[m
+[36m@@ -1,53 +0,0 @@[m
+[31m-import os[m
+[31m-from web3 import Web3 # type: ignore[m
+[31m-from cryptography.fernet import Fernet # type: ignore[m
+[31m-from dotenv import load_dotenv  # type: ignore [m
+[31m-[m
+[31m-# 加载 .env 文件[m
+[31m-load_dotenv()[m
+[31m-[m
+[31m-# 从环境变量中获取私钥和加密消息[m
+[31m-private_key = os.getenv("PRIVATE_KEY")[m
+[31m-message = os.getenv("MESSAGE")[m
+[31m-[m
+[31m-# 检查私钥和消息是否正确加载[m
+[31m-if not private_key or not message:[m
+[31m-    print("私钥或消息未正确加载")[m
+[31m-    exit()[m
+[31m-[m
+[31m-# 连接到ETH_Mainnet节点[m
+[31m-unichain_url = 'https://withered-patient-glade.quiknode.pro/0155507fe08fe4d1e2457a85f65b4bc7e6ed522f'[m
+[31m-web3 = Web3(Web3.HTTPProvider(unichain_url))[m
+[31m-[m
+[31m-# 检查连接[m
+[31m-if not web3.is_connected():[m
+[31m-    print("无法连接ETH_Mainnet")[m
+[31m-    exit()[m
+[31m-[m
+[31m-# 获取地址[m
+[31m-from_address = web3.eth.account.from_key(private_key).address[m
+[31m-to_address = '0x0000000000000000000000000000000000000000'[m
+[31m-[m
+[31m-fixed_key = b'tXXHz6htUutZEOz_7EL40LwvrsmHneDhoe2Vyib_kUU='  [m
+[31m-cipher_suite = Fernet(fixed_key)[m
+[31m-[m
+[31m-# 加密消息[m
+[31m-encrypted_message = cipher_suite.encrypt(message.encode()).decode()[m
+[31m-[m
+[31m-# 构建交易[m
+[31m-nonce = web3.eth.get_transaction_count(from_address)[m
+[31m-tx = {[m
+[31m-    'nonce': nonce,[m
+[31m-    'to': to_address,[m
+[31m-    'value': web3.to_wei(0, 'ether'), [m
+[31m-    'gas': 2000000,[m
+[31m-    'gasPrice': web3.to_wei('20', 'gwei'),  [m
+[31m-    'data': web3.to_hex(text=encrypted_message),[m
+[31m-    'chainId': 1    #ETH_Mainnet的链ID[m
+[31m-}[m
+[31m-[m
+[31m-# 签署并发送交易[m
+[31m-signed_tx = web3.eth.account.sign_transaction(tx, private_key)[m
+[31m-tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)[m
+[31m-[m
+[31m-print(f"数据载入成功！哈希为：{web3.to_hex(tx_hash)}")[m
