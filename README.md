@@ -1,6 +1,6 @@
 # 🚀 Sniper Script
 
-**Sniper** 是一个基于以太坊EVM的自动化交易脚本，允许用户通过设定参数，自动在DEX上抢购代币。
+**Sniper** 是一个基于以太坊EVM的自动化交易脚本，允许用户通过设定参数，自动在DEX上快速交易指定代币。
 
 ---
 
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ```
 
 ### 3️⃣ 配置 `.env` 文件
-进入项目目录编辑 `.env` 文件：
+进入项目目录，编辑 `.env` 文件：
 ```bash
 cd Sniper
 nano .env
@@ -47,6 +47,7 @@ nano .env
 PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef    # 私钥
 MESSAGE = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # 助记词
 CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451                                   # 代币合约地址
+
 Auto_Snipe_Tip=0.01                       # 贿赂金额/ ETH
 Manual_Buyer_Gwei=15                      # 优先费用/ Gwei
 Slippage=10                               # 滑点百分比/ %
@@ -59,7 +60,8 @@ Slippage=10                               # 滑点百分比/ %
 ## 🏃‍♂️ 使用指南
 
 1. **运行脚本**
-   在配置好 `.env` 文件后，启动脚本。以下示例为测试网sepolia的启动命令：
+
+   配置好 `.env` 文件后，启动脚本。以下示例为测试网sepolia的启动命令：
    ```bash
    python3 TEST_Sepolia_Sniper.py
    ```
@@ -70,9 +72,10 @@ Slippage=10                               # 滑点百分比/ %
 - **BASE:** 使用 `BASE_Sniper.py`
 
 ### **建议**
-- **测试网优先**：建议先在测试网 **Sepolia** 上运行脚本，确保一切正常后再转移到主网操作。Sepolia 上需要有少量的 ETH 测试币，具体获取方式可以参考相关测试网水龙头。
+- **先在测试网上运行**：建议先在 **Sepolia** 上运行脚本，确保一切正常后再转移到主网操作。Sepolia 上需要有少量的 ETH 测试币，具体获取方式可以参考相关测试网水龙头。
 
 2. **示例输出**
+
    成功执行后，脚本将输出如下信息：
    ```plaintext
    私钥已成功加载。
@@ -87,13 +90,15 @@ Slippage=10                               # 滑点百分比/ %
 ## ❓ 常见问题解答
 
 - **如何处理“无法连接到节点”错误？**
-  - 请检查 `.env` 文件中的网络节点URL，确保其正确且可用。
+  - 检查网络是否正常连接。
+  - 可能节点故障或者运行商限制，请稍后再试。
+  - 可自行编辑脚本文件：更改节点URL。
 
-- **助记词无效或错误？**
+- **助记词不正确？**
   - 请确认 `.env` 中的助记词格式正确，通常应为12或24个单词。
 
 - **路由合约未找到？**
-  - 检查代币是否已添加流动性池，或尝试不同的DEX。
+  - 代币尚未添加任何流动性。
 
 ---
 
