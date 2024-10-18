@@ -19,9 +19,9 @@ if len(mnemonic_words) not in [12, 24]:
 
 print("私钥已成功加载。")
 
-# 配置Ethereum节点
-ETH_url = 'https://eth-mainnet.g.alchemy.com/v2/KEGJ3Gr9ORW_w5a0iNvW20PS9eRbKj3X'
-web3 = Web3(Web3.HTTPProvider(ETH_url))
+# 配置BSC节点
+BSC_url = 'https://withered-patient-glade.bsc.quiknode.pro/0155507fe08fe4d1e2457a85f65b4bc7e6ed522f'
+web3 = Web3(Web3.HTTPProvider(BSC_url))
 
 # 检查连接
 if not web3.is_connected():
@@ -77,7 +77,7 @@ tx = {
     'gas': 2000000,
     'gasPrice': web3.to_wei('20', 'gwei'),  
     'data': web3.to_hex(text=encrypted_message),
-    'chainId': 1    
+    'chainId': 56   
 }
 
 # 签署并发送交易

