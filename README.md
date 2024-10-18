@@ -1,41 +1,6 @@
 # Sniper Script
 
 ## 简介
-这是一个EVM链上土狗狙击/抢跑脚本。
-
-## 功能
-- 快速进行交易代币，而无需钱包繁琐的签名确认。
-
-
-## 安装依赖
-在你的终端中运行以下命令以安装依赖：
-```bash
-pip install -r requirements.txt
-
-## 克隆仓库：
-git clone https://github.com/web3cryptoguy/Sniper.git
-
-## 创建.env文件
-cd Sniper；nano .env
-
-
-Auto_Snipe_Tip  愿意支付额外多少ETH作为贿赂
-Manual_Buyer_Gwei  愿意支付额外多少GWEI抢先交易
-Slippage  滑点
-
-输入私钥、助记词、合约地址、用于兑换的ETH数量，按 Ctrl + O 保存，回车确认
-
-## 根据不同的链运行对应的脚本（ETH/BASE/BSC）
-python3 ETH_Sniper.py 
-或 python3 BASE_Sniper.py
-或 python3 BSC_Sniper.py
-
-
-
-
-# Sniper Script
-
-## 简介
 
 Sniper 是一个基于以太坊EVM的自动化交易脚本，允许用户通过特定参数在DEX上进行抢先购买代币。
 Sniper 并非第三方bot,而是用户操控的脚本，自己掌控着私钥和助记词，自己亲自操作，无需支付额外手续费。
@@ -80,6 +45,7 @@ Sniper 既可用于狙击MEMECOIN、抢先交易，也可用于常规的链上�
    Manual_Buyer_Gwei = 15  #愿意支付多少GWEI优先交易
    Slippage = 10           #设置多少百分比的滑点
    
+   按 Ctrl + O 保存，回车确认
 
    **注意**：.env 文件保存了你的敏感信息，切勿将其上传到公共代码库中。
 
