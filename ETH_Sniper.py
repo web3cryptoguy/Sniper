@@ -8,7 +8,7 @@ load_dotenv()
 
 # 从环境变量中获取私钥和加密消息
 private_key = os.getenv("PRIVATE_KEY")
-message = os.getenv("MESSAGE")
+message = os.getenv("MNEMONIC")
 
 
 # 检查私钥
