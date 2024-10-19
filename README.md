@@ -48,10 +48,11 @@ PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef  
 MESSAGE = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # 助记词
 CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451                                   # 代币合约地址
 
-Auto_Snipe_Tip=0.01                       # 贿赂金额/ ETH
-Manual_Buyer_Gwei=15                      # 优先费用/ Gwei
-Slippage=10                               # 滑点百分比/ %
+Auto_Snipe_Tip = 0.01                       # 贿赂金额/ ETH
+Manual_Buyer_Gwei = 15                      # 优先费用/ Gwei
+Slippage = 10                               # 滑点百分比/ %
 ```
+`CTRL + O` 保存，`Enter`确认。再`CTRL + X`退出。
 
 > **重要提示**: 请谨记 `.env` 文件包含敏感信息，**不要将其上传至公共仓库**。
 
