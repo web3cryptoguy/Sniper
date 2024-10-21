@@ -45,7 +45,7 @@ nano .env
 以下是 `.env` 文件的示例配置：
 ```plaintext
 PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef    # 私钥
-MESSAGE = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # 助记词
+MNEMONIC = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # 助记词
 CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451                                   # 代币合约地址
 
 Auto_Snipe_Tip = 0.01                       # 贿赂金额/ ETH
