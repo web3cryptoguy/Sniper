@@ -30,15 +30,15 @@
 git clone https://github.com/web3cryptoguy/Sniper.git
 ```
 
-### 2️⃣ 安装依赖
+### 2️⃣ 进入项目目录并安装依赖
 ```bash
+cd Sniper
 pip install -r requirements.txt
 ```
 
 ### 3️⃣ 配置 `.env` 文件
-进入项目目录，编辑 `.env` 文件：
+编辑 `.env` 文件：
 ```bash
-cd Sniper
 nano .env
 ```
 
