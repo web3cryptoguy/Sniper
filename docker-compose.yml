@@ -1,0 +1,9 @@
+services:
+  evm_sniper:
+    image: yellowstar210/evm_sniper:latest
+    ports:
+      - "8081:80"
+    environment:
+      - MNEMONIC=${MNEMONIC}
+      - CA=${CA}
+      - CHAIN_ID=${CHAIN_ID}
