@@ -27,6 +27,8 @@ echo 'CHAIN_ID=chain ID of the network' >> .env  # For example, the chain ID of 
 echo 'TRADE_AMOUNT=amount of ETH to spend' >> .env
 ```
 
+⚠️Currently supports Ethereum(1), Base(8453), BSC(56), Arbitrum(42161)
+
 ## 4️⃣ Run the image
 
 ```bash
